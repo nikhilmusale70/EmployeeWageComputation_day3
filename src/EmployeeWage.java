@@ -5,6 +5,7 @@ public class EmployeeWage {
     public static int half_time=2;
     public static void main(String[] args) {
         int hr = 0;
+        int total_hr=0;
         int wage_earned = 0;
         Random ran = new Random();
         for (int day=1;day<=20;day++){
@@ -20,9 +21,13 @@ public class EmployeeWage {
                     hr = 0;
                     break;
             }
+            total_hr=hr + total_hr;
 
-            wage_earned = hr * 20 + wage_earned;
+            if (day==20 || hr==100) {
+                break;
+            }
         }
+        wage_earned = total_hr * 20;
         System.out.println("Wage earned by employee is Rs. " + wage_earned );
     }
 }
