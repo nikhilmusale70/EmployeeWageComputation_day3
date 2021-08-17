@@ -5,20 +5,22 @@ public class EmployeeWageLogic {
     public static int present=1;
     public static int half_time=2;
     public static int totalDay;
-    private static int companyDay;
 
+    public int wagePerHour;
+    public int companyDay;
+    public int workingHoursPerMonth;
+    public String companyName;
 
-    public EmployeeWageLogic(int company1){
-        companyDay = company1;
+    public EmployeeWageLogic(String companyName,int wagePerHour, int companyDay, int workingHoursPerMonth){
+        this.companyName = companyName;
+        this.wagePerHour = wagePerHour;
+        this.companyDay = companyDay;
+        this.workingHoursPerMonth = workingHoursPerMonth;
         employeeWageLogic();
     }
 
-    public EmployeeWageLogic(int company2 , int a){
-        companyDay = company2;
-        employeeWageLogic();
-    }
 
-    public static void employeeWageLogic(){
+    public void employeeWageLogic(){
         int hr = 0;
         int total_hr=0;
         int wage_earned = 0;
@@ -36,13 +38,13 @@ public class EmployeeWageLogic {
                     hr = 0;
                     break;
             }
-            total_hr=hr + total_hr;
+            total_hr = hr + total_hr;
 
-            if (day==20 || hr==100) {
+            if (day==companyDay || hr==workingHoursPerMonth) {
                 break;
             }
         }
-        wage_earned = total_hr * 20;
-        System.out.println("Wage earned by employee is Rs. " + wage_earned);
+        wage_earned = total_hr * wagePerHour;
+        System.out.println("For Company "+ companyName +" Wage earned by employee is Rs. " + wage_earned);
     }
 }
