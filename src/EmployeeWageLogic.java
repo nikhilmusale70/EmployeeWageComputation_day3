@@ -12,6 +12,10 @@ public class EmployeeWageLogic {
     public int workingHoursPerMonth;
     public String companyName;
 
+    public EmployeeWageLogic(){
+
+    }
+
     public EmployeeWageLogic(String companyName,int wagePerHour, int companyDay, int workingHoursPerMonth){
         this.companyName = companyName;
         this.wagePerHour = wagePerHour;
