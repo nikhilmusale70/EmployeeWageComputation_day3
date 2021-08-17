@@ -5,6 +5,7 @@ public class EmployeeWageLogic {
     public static int present=1;
     public static int half_time=2;
     public static int totalDay;
+    public int wage_earned;
 
     public int wagePerHour;
     public int companyDay;
@@ -19,11 +20,10 @@ public class EmployeeWageLogic {
         employeeWageLogic();
     }
 
-
     public void employeeWageLogic(){
         int hr = 0;
         int total_hr=0;
-        int wage_earned = 0;
+        wage_earned = 0;
         Random ran = new Random();
         for (int day=1;day<=companyDay;day++){
             int is_present = ran.nextInt(3);
@@ -45,6 +45,11 @@ public class EmployeeWageLogic {
             }
         }
         wage_earned = total_hr * wagePerHour;
-        System.out.println("For Company "+ companyName +" Wage earned by employee is Rs. " + wage_earned);
+     //   System.out.println("For Company "+ companyName +" Wage earned by employee is Rs. " + wage_earned);
+    }
+
+    @Override
+    public String toString() {
+        return "For Company "+ companyName +" Wage earned by employee is Rs. " + wage_earned ;
     }
 }
